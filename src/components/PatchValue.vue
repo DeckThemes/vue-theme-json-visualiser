@@ -6,12 +6,14 @@
             <label :for="id">Default</label>
         </div>
         <Injects class="injects" v-model="modelValue.injects" />
+        <Components class="injects" v-model="modelValue.components" />
     </section>
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue';
 import Injects from "./Injects.vue"
+import Components from "./Components.vue"
 
 const id = String(Math.random());
 
@@ -26,7 +28,8 @@ const props = defineProps({
                     filename: "1",
                     tabs: ["SP"]
                 }
-            ])
+            ]),
+            components: reactive([])
         })
     },
     disabled: {

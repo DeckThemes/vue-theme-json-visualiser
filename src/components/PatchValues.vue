@@ -1,9 +1,9 @@
 <template>
     <section class="patchValues">
         <PatchValue :disabled="disabled" v-for="(x,i) in modelValue" v-model="modelValue[i]" />
+        <button :disabled="disabled" @click="add()">+</button> 
+        <button :disabled="disabled" @click="remove()">-</button> 
     </section>
-    <button :disabled="disabled" @click="add()">+</button> 
-    <button :disabled="disabled" @click="remove()">-</button> 
 </template>
 
 <script setup>
@@ -31,7 +31,7 @@ const props = defineProps({
 })
 
 function add(){
-    this.props.modelValue.push(reactive({patchOptionName: "New Patch Option", injects: reactive([])}))
+    this.props.modelValue.push(reactive({patchOptionName: "New Patch Option", injects: reactive([]), components: reactive([])}))
     console.log(this.props.modelValue)
 }
 
