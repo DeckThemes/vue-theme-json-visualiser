@@ -1,7 +1,7 @@
 <template>
     <section class="injectswrapper">
         <section class="injects">
-            <Inject v-for="(x, i) in injects" v-model="injects[i]" />
+            <Inject v-for="(x, i) in modelValue" v-model="modelValue[i]" />
         </section>
         <button @click="add()">+</button> 
         <button @click="remove()">-</button> 
@@ -12,22 +12,28 @@
 import {reactive, ref} from "vue"
 import Inject from "./Inject.vue"
 
-const injects = reactive([
-    {
-        filename: "1",
-        tabs: ["SP"]
-    },
-    {
-        filename: "2",
-        tabs: ["QuickAccess"]
+const props = defineProps({
+    modelValue: {
+        type: Array,
+        default: reactive([
+            {
+                filename: "1",
+                tabs: ["SP"]
+            },
+            {
+                filename: "2",
+                tabs: ["QuickAccess"]
+            }
+        ])
     }
-])
+})
 
 function add(){
-    injects.push({filename: "Shared.css", tabs: ["SP"]})
+    this.props.modelValue.push(reactive({filename: "Shared.css", tabs: ["SP"]}))
+    console.log(this.props.modelValue)
 }
 
 function remove(){
-    injects.pop()
+    this.props.modelValue.pop()
 }
 </script>

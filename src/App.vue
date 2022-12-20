@@ -1,8 +1,8 @@
 <script setup>
-import Injects from "./components/Injects.vue"
+import Patches from "./components/Patches.vue"
 const a = "b"
 </script>
 
 <template>
-  <Injects />
+  <Patches />
 </template>
