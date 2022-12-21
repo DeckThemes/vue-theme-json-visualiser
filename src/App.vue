@@ -19,8 +19,8 @@ function setProperty(from, to, key, example){
 }
 
 function parseTheme(theme){
-    if (theme.manifest_version !== 4)
-        throw "Only manifest version 4 is supported"
+    if (theme.manifest_version < 2)
+        throw "Only manifest version 2+ is supported"
 
     let res = {
         injects: [],
@@ -28,13 +28,13 @@ function parseTheme(theme){
     }
     
     let common = {
+        "id": "",
         "name": "My Epic Theme",
         "author": "A Cool Person",
         "target": "Other",
         "version": "v1.0",
         "description": ""
     }
-
     
     for (const [key, value] of Object.entries(common))
         setProperty(theme, res, key, value)
@@ -43,7 +43,6 @@ function parseTheme(theme){
       res.injects = parseInjects(theme.inject)
       console.log(res.injects)
     }
-        
 
     if ("patches" in theme){
         for (const [key, value] of Object.entries(theme.patches))
@@ -105,14 +104,51 @@ function newFile(e){
   reader.onload = readerEvent => {
       var content = readerEvent.target.result; // this is the content!
       console.log( content );
-      Object.assign(value, parseTheme(JSON.parse(content)))
+      try {
+        Object.assign(value, parseTheme(JSON.parse(content)))
+      }
+      catch (e){
+        alert(e)
+      }
    }
 }
 
+function retrieveJson(model){
+    let res = {
+        id: model.id,
+        name: model.name,
+        author: model.author,
+        target: model.target,
+        version: model.version,
+        description: model.description,
+        manifest_version: 4,
+    }
+
+    let injects = {}
+    model.injects.forEach(x => {
+        injects[x.filename] = x.tabs
+    })
+
+    res.inject = injects
+    return res
+}
+
 let value = reactive(parseTheme(data))
+
+function downloadJson(){
+    let res = retrieveJson(value)
+    var hiddenElement = document.createElement('a');
+    var myFile = new Blob([JSON.stringify(res)], {type: 'text/plain'});
+
+    window.URL = window.URL || window.webkitURL;
+    hiddenElement.setAttribute("href", window.URL.createObjectURL(myFile));
+    hiddenElement.setAttribute("download", "theme.json");
+    hiddenElement.click()
+}
 </script>
 
 <template>
   <input type="file" @change="newFile($event)" />
-  <Theme :model-value="value" />
+  <button @click="downloadJson()">Export</button>
+  <Theme v-model="value" />
 </template>
