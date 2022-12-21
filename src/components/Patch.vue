@@ -53,28 +53,32 @@ function onTypeChange() {
 
     if (type === "checkbox") {
         this.props.modelValue.values.length = 0;
-        this.props.modelValue.values.push({
+        this.props.modelValue.values.push(reactive({
             patchOptionName: "Yes",
             default: ref(false),
-            injects: reactive([])
-        })
-        this.props.modelValue.values.push({
+            injects: reactive([]),
+            components: reactive([])
+        }))
+        this.props.modelValue.values.push(reactive({
             patchOptionName: "No",
             default: ref(true),
-            injects: reactive([])
-        })
+            injects: reactive([]),
+            components: reactive([])
+        }))
 
         disabled.value = true
     }
 
     if (type === "none") {
-        this.props.modelValue.values = reactive([
+        this.props.modelValue.values.length = 0;
+        this.props.modelValue.values.push(reactive(
             {
                 patchOptionName: "Inject",
                 default: ref(true),
-                injects: reactive([])
+                injects: reactive([]),
+                components: reactive([])
             }
-        ])
+        ))
 
         disabled.value = true
     }
