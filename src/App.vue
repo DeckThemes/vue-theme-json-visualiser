@@ -10,10 +10,12 @@ const data = {
 }
 
 function setProperty(from, to, key, example){
-    if (key in from)
+    if (key in from) 
         to[key] = from[key]
     else if (example)
         to[key] = example
+
+    console.log("Set " + key + " To " + to[key])
 }
 
 function parseTheme(theme){
@@ -29,7 +31,7 @@ function parseTheme(theme){
         "name": "My Epic Theme",
         "author": "A Cool Person",
         "target": "Other",
-        "version": "v1.2",
+        "version": "v1.0",
         "description": ""
     }
 
@@ -37,8 +39,11 @@ function parseTheme(theme){
     for (const [key, value] of Object.entries(common))
         setProperty(theme, res, key, value)
 
-    if ("injects" in theme)
-        res.injects = parseInjects(theme.injects)
+    if ("inject" in theme) {
+      res.injects = parseInjects(theme.inject)
+      console.log(res.injects)
+    }
+        
 
     if ("patches" in theme){
         for (const [key, value] of Object.entries(theme.patches))
