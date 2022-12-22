@@ -30,12 +30,24 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">Always injected</div>
+                    <div class="card-body">
+                        <Injects v-model="modelValue.injects" />
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <Injects v-model="modelValue.injects" />
-        </div>
-        <div>
-            <Patches v-model="modelValue.patches" />
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Theme Patches</div>
+                    <div class="card-body">
+                        <Patches v-model="modelValue.patches" />
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>

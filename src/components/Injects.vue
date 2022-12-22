@@ -3,8 +3,8 @@
         <section class="injects">
             <Inject v-for="(x, i) in modelValue" v-model="modelValue[i]" />
         </section>
-        <button @click="add()">+</button> 
-        <button @click="remove()">-</button> 
+        <button @click="add()" class="btn btn-outline-primary btn-sm">Add file</button> 
+        <button @click="remove()" :disabled="modelValue.length <= 0" class="btn btn-outline-secondary ml-5 btn-sm">Remove file</button> 
     </section>
 </template>
 
@@ -37,3 +37,9 @@ function remove(){
     this.props.modelValue.pop()
 }
 </script>
+
+<style scoped>
+.ml-5 {
+    margin-left: 5px;
+}
+</style>

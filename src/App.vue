@@ -208,3 +208,9 @@ function downloadJson(){
         margin-right: 10px;
     }
 </style>
+
+<style>
+body {
+    background-color: transparent !important;
+}
+</style>
