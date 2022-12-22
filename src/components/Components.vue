@@ -2,7 +2,7 @@
     <section class="components">
         <Component v-for="(x,i) in modelValue" v-model="modelValue[i]" />
         <button @click="add()">+</button> 
-        <button @click="remove()">-</button> 
+        <button v-show="modelValue.length > 0" @click="remove()">-</button> 
     </section>
 </template>
 
