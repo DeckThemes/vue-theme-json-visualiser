@@ -33,7 +33,8 @@ function parseTheme(theme){
         "author": "A Cool Person",
         "target": "Other",
         "version": "v1.0",
-        "description": ""
+        "description": "",
+        "dependencies": {}
     }
     
     for (const [key, value] of Object.entries(common))

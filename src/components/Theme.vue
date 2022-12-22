@@ -1,26 +1,35 @@
 <template>
     <section class="theme">
-        <div>
-            <label :for="id+1">Theme Name:</label>
-            <input type="text" :id="id+1" v-model="modelValue.name" />
-        </div>
-        <div>
-            <label :for="id+2">Theme Author:</label>
-            <input type="text" :id="id+2" v-model="modelValue.author" />
-        </div>
-        <div>
-            <label :for="id+3">Theme Target:</label>
-            <select v-model="modelValue.target" :id="id+3">
-                <option v-for="x in targets" :value="x">{{ x }}</option>
-            </select>
-        </div>
-        <div>
-            <label :for="id+4">Theme Version:</label>
-            <input type="text" :id="id+4" v-model="modelValue.version" />
-        </div>
-        <div>
-            <label :for="id+5">Theme Description:</label>
-            <input type="text" :id="id+5" v-model="modelValue.description" />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">Theme Metadata</div>
+                    <div class="card-body">
+                        <div class="input-group input-group-sm mb-1">
+                            <label class="input-group-text" :for="id+1">Name</label>
+                            <input class="form-control" type="text" :id="id+1" v-model="modelValue.name" />
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <label class="input-group-text" :for="id+2">Author</label>
+                            <input class="form-control" type="text" :id="id+2" v-model="modelValue.author" />
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <label class="input-group-text" :for="id+3">Target</label>
+                            <select class="form-select" v-model="modelValue.target" :id="id+3">
+                                <option v-for="x in targets" :value="x">{{ x }}</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <label class="input-group-text" :for="id+4">Version</label>
+                            <input class="form-control" type="text" :id="id+4" v-model="modelValue.version" />
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <label class="input-group-text" :for="id+5">Description</label>
+                            <textarea rows="1" class="form-control" :id="id+5" v-model="modelValue.description" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <Injects v-model="modelValue.injects" />
@@ -57,3 +66,13 @@ const props = defineProps({
     modelValue: Object
 })
 </script>
+
+<style scoped>
+.card {
+    margin: 5px;
+}
+
+.card-header {
+    text-align: center;
+}
+</style>
