@@ -185,7 +185,25 @@ function downloadJson(){
 </script>
 
 <template>
-  <input type="file" @change="newFile($event)" />
-  <button @click="downloadJson()">Export</button>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light">CssLoader theme.json visualizer</a>
+            <label for="formFile" class="btn btn-primary">Import theme.json</label>
+            <input hidden type="file" id="formFile" @change="newFile($event)" >
+            <button class="btn btn-success" @click="downloadJson()">Export theme.json</button>
+        </div>
+
+    </nav>
+
   <Theme v-model="value" />
 </template>
+
+<style scoped>
+    nav > .container-fluid {
+        justify-content: left !important;
+    }
+
+    nav > .container-fluid > * {
+        margin-right: 10px;
+    }
+</style>
