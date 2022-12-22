@@ -122,14 +122,51 @@ function retrieveJson(model){
         version: model.version,
         description: model.description,
         manifest_version: 4,
+        inject: {},
+        dependencies: {},
+        patches: {}
     }
 
-    let injects = {}
     model.injects.forEach(x => {
-        injects[x.filename] = x.tabs
+        res.inject[x.filename] = x.tabs
     })
 
-    res.inject = injects
+    model.patches.forEach(x => {
+        let name = x.patchName
+        let patch = {
+            type: x.type,
+            default: false,
+            values: {},
+            components: []
+        }
+
+        x.values.forEach(y => {
+            patch.values[y.patchOptionName] = {}
+            y.injects.forEach(z => {
+                patch.values[y.patchOptionName][z.filename] = z.tabs
+            })
+
+            if (y.default)
+                patch.default = y.patchOptionName
+
+            y.components.forEach(z => {
+                patch.components.push({
+                    name: z.componentName,
+                    type: z.type,
+                    on: y.patchOptionName,
+                    default: z.default,
+                    css_variable: z.cssVariable,
+                    tabs: z.tabs
+                })
+            })
+        })
+
+        if (!patch.default)
+            patch.default = Object.keys(patch.values)[0]
+        
+        res.patches[name] = patch
+    })
+
     return res
 }
 
@@ -138,7 +175,7 @@ let value = reactive(parseTheme(data))
 function downloadJson(){
     let res = retrieveJson(value)
     var hiddenElement = document.createElement('a');
-    var myFile = new Blob([JSON.stringify(res)], {type: 'text/plain'});
+    var myFile = new Blob([JSON.stringify(res, null, "\t")], {type: 'text/plain'});
 
     window.URL = window.URL || window.webkitURL;
     hiddenElement.setAttribute("href", window.URL.createObjectURL(myFile));
