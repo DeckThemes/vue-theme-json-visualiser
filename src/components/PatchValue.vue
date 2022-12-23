@@ -11,17 +11,8 @@
             </div>
         </div> 
         <div class="card-body">
-            <div class="card mb-2">
-                <div class="card-body">
-                    <Injects class="injects" v-model="modelValue.injects" />
-                </div>
-            </div>  
-
-            <div class="card mb-2">
-                <div class="card-body">
-                    <Components class="injects" v-model="modelValue.components" />
-                </div>
-            </div>  
+            <Injects class="injects mb-3" v-model="modelValue.injects" />
+            <Components class="injects" v-model="modelValue.components" />
         </div> 
    </div>
 </template>

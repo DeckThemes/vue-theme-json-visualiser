@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-4">
+    <div class="mb-1 component">
         <div class="input-group input-group-sm mb-1">
             <label class="input-group-text" :for="id+1">Component Name</label>
             <input class="form-control" type="text" :id="id+1" v-model="modelValue.componentName" />
@@ -48,6 +48,10 @@ const tabs = ["SP", "QuickAccess", "MainMenu"]
 <style scoped>
 .card-body {
     padding: 0;
+}
+
+.component:not(:first-child) {
+    margin-top: 20px;
 }
 
 </style>

@@ -47,6 +47,10 @@ const props = defineProps({
 const disabled = ref(false)
 const types = ["dropdown", "slider", "checkbox", "none"]
 
+function setDisabledState(type){
+    disabled.value = type === "checkbox" || type === "none"
+}
+
 function onTypeChange() {
     let type = this.props.modelValue.type
     console.log(type)
@@ -67,8 +71,6 @@ function onTypeChange() {
             injects: reactive([]),
             components: reactive([])
         }))
-
-        disabled.value = true
     }
 
     if (type === "none") {
@@ -81,10 +83,12 @@ function onTypeChange() {
                 components: reactive([])
             }
         ))
-
-        disabled.value = true
     }
+
+    setDisabledState(this.props.modelValue.type)
 }
+
+setDisabledState(props.modelValue.type)
 </script>
 
 <style scoped>

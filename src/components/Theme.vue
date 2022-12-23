@@ -82,8 +82,4 @@ const props = defineProps({
 .card-header {
     text-align: center;
 }
-
-.row {
-    width: 100%;
-}
 </style>
