@@ -47,13 +47,9 @@ const props = defineProps({
 </script>
 
 <style scoped> 
-.injects {
-    margin-left: 20px;
-}
-
 .input-group {
     width: 70%;
     margin: auto;
-    min-width: 400px;
+    min-width: 280px;
 }
 </style>

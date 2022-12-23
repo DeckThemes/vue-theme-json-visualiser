@@ -42,9 +42,6 @@ function remove(){
 </script>
 
 <style scoped>
-.patchValues {
-    margin-left: 20px;
-}
 
 .btn-outline-primary {
     margin-right: 5px;

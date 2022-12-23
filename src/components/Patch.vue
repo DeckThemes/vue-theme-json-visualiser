@@ -95,7 +95,7 @@ setDisabledState(props.modelValue.type)
 .patchName {
     width: 70%;
     margin: auto;
-    min-width: 400px;
+    min-width: 330px;
 }
 
 .headerThingy {

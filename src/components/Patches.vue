@@ -6,7 +6,7 @@
             <button class="btn btn-outline-secondary ml-5 btn-sm" @click="remove()" :disabled="modelValue.length <= 0">Remove Last Patch</button> 
         </div>
         <div class="card-body">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="row row-cols-1 row-cols-md-2 g-2">
                 <div class="col" v-for="(x,i) in modelValue">
                     <Patch v-model="modelValue[i]" />
                 </div>
