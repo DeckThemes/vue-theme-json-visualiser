@@ -1,8 +1,8 @@
 <template>
     <section class="patchValues">
         <PatchValue :disabled="disabled" v-for="(x,i) in modelValue" v-model="modelValue[i]" />
-        <button :disabled="disabled" @click="add()">+</button> 
-        <button :disabled="disabled" @click="remove()">-</button> 
+        <button class="btn btn-outline-primary btn-sm" :disabled="disabled" @click="add()">Add Patch Option</button> 
+        <button class="btn btn-outline-secondary ml-5 btn-sm" :disabled="disabled || modelValue.length <= 0" @click="remove()">Remove Last Patch Option</button> 
     </section>
 </template>
 
@@ -44,6 +44,10 @@ function remove(){
 <style scoped>
 .patchValues {
     margin-left: 20px;
+}
+
+.btn-outline-primary {
+    margin-right: 5px;
 }
 
 </style>

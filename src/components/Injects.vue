@@ -3,8 +3,8 @@
         <section class="injects">
             <Inject v-for="(x, i) in modelValue" v-model="modelValue[i]" />
         </section>
-        <button @click="add()" class="btn btn-outline-primary btn-sm">Add file</button> 
-        <button @click="remove()" :disabled="modelValue.length <= 0" class="btn btn-outline-secondary ml-5 btn-sm">Remove file</button> 
+        <button @click="add()" class="btn btn-outline-primary btn-sm">Add File</button> 
+        <button @click="remove()" :disabled="modelValue.length <= 0" class="btn btn-outline-secondary ml-5 btn-sm">Remove Last File</button> 
     </section>
 </template>
 

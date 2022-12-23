@@ -41,12 +41,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card">
-                    <div class="card-header">Theme Patches</div>
-                    <div class="card-body">
-                        <Patches v-model="modelValue.patches" />
-                    </div>
-                </div>
+                <Patches v-model="modelValue.patches" />
             </div>
         </div>
     </section>
@@ -86,5 +81,9 @@ const props = defineProps({
 
 .card-header {
     text-align: center;
+}
+
+.row {
+    width: 100%;
 }
 </style>

@@ -1,13 +1,29 @@
 <template>
-    <section class="patchValue">
-        <input type="text" :disabled="disabled" v-model="modelValue.patchOptionName"/>
-        <div>
-            <input type="checkbox" :id="id" v-model="modelValue.default" />
-            <label :for="id">Default</label>
-        </div>
-        <Injects class="injects" v-model="modelValue.injects" />
-        <Components class="injects" v-model="modelValue.components" />
-    </section>
+    <div class="card mb-2">
+        <div class=" card-header">
+            <div class="input-group input-group-sm">
+                <label class="input-group-text" :for="id+1">Option Name</label>
+                <input class="form-control" type="text" :id="id+1" :disabled="disabled" v-model="modelValue.patchOptionName"/>
+                <label class="input-group-text"  :for="id+2">Default?</label>
+                <div class="input-group-text">
+                    <input class="form-check-input" type="checkbox" :id="id+2" v-model="modelValue.default" />
+                </div>
+            </div>
+        </div> 
+        <div class="card-body">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <Injects class="injects" v-model="modelValue.injects" />
+                </div>
+            </div>  
+
+            <div class="card mb-2">
+                <div class="card-body">
+                    <Components class="injects" v-model="modelValue.components" />
+                </div>
+            </div>  
+        </div> 
+   </div>
 </template>
 
 <script setup>
@@ -42,5 +58,11 @@ const props = defineProps({
 <style scoped> 
 .injects {
     margin-left: 20px;
+}
+
+.input-group {
+    width: 70%;
+    margin: auto;
+    min-width: 400px;
 }
 </style>

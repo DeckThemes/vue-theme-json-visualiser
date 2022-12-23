@@ -4,7 +4,7 @@ import { reactive, ref } from 'vue';
 import Theme from "./components/Theme.vue"
 const data = {
   manifest_version: 4,
-  injects: {
+  inject: {
     "shared.css": ["SP"]
   }
 }
@@ -103,15 +103,19 @@ function newFile(e){
   var reader = new FileReader();
   reader.readAsText(file,'UTF-8');
   reader.onload = readerEvent => {
-      var content = readerEvent.target.result; // this is the content!
-      console.log( content );
-      try {
-        Object.assign(value, parseTheme(JSON.parse(content)))
-      }
-      catch (e){
-        alert(e)
-      }
+        var content = readerEvent.target.result; // this is the content!
+        console.log( content );
+        setTheme(content)
    }
+}
+
+function setTheme(text){
+    try {
+      Object.assign(value, parseTheme(JSON.parse(text)))
+    }
+    catch (e){
+      alert(e)
+    }
 }
 
 function retrieveJson(model){
@@ -172,6 +176,13 @@ function retrieveJson(model){
 }
 
 let value = reactive(parseTheme(data))
+
+if (window.location.search){
+    let r = decodeURI(window.location.search)
+    console.log("Received json on load: " + r)
+    setTheme(r.substring(1))
+}
+
 
 function downloadJson(){
     let res = retrieveJson(value)

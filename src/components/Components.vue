@@ -1,8 +1,8 @@
 <template>
     <section class="components">
         <Component v-for="(x,i) in modelValue" v-model="modelValue[i]" />
-        <button @click="add()">+</button> 
-        <button @click="remove()">-</button> 
+        <button class="btn btn-outline-primary btn-sm" @click="add()">Add Component</button> 
+        <button class="btn btn-outline-secondary btn-sm" @click="remove()" :disabled="modelValue.length <= 0">Remove Last Component</button> 
     </section>
 </template>
 
@@ -37,3 +37,9 @@ function remove(){
 }
 
 </script>
+
+<style scoped>
+.btn-outline-primary {
+    margin-right: 5px;
+}
+</style>

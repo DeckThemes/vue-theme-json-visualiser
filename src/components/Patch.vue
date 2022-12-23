@@ -1,17 +1,19 @@
 <template>
-    <section class="patchValues">
-        <div>
-            <label v-if="disableNameInput == false" :for="id+1">Patch Name:</label>
-            <input type="text" :id="id+1" v-model="modelValue.patchName" :disabled="disableNameInput==true" />
+    <div class="card">
+        <div class="card-header">
+            <div class="input-group input-group-sm patchName">
+                <label v-if="disableNameInput == false" class="input-group-text" :for="id+1">Patch Name</label>
+                <input class="form-control" type="text" :id="id+1" v-model="modelValue.patchName" :disabled="disableNameInput==true" />
+                <label v-if="disableNameInput == false && hideTypeSelect == false" :for="id+2" class="input-group-text">Type</label>
+                <select class="form-select" :id="id+2" v-model="modelValue.type" @change="onTypeChange()" v-if="hideTypeSelect==false">
+                    <option v-for="x in types" :value="x">{{ x.charAt(0).toUpperCase() + x.slice(1) }}</option>
+                </select>
+            </div>
         </div>
-        <div v-if="hideTypeSelect==false">
-            <label v-if="disableNameInput == false" :for="id+2">Patch Type:</label>
-            <select :id="id+2" v-model="modelValue.type" @change="onTypeChange()">
-                <option v-for="x in types" :value="x">{{ x }}</option>
-            </select>
+        <div class="card-body">
+            <PatchValues :disabled="disabled" v-model="modelValue.values" />
         </div>
-        <PatchValues :disabled="disabled" v-model="modelValue.values" />
-    </section>
+    </div>
 </template>
 
 <script setup>
@@ -84,3 +86,15 @@ function onTypeChange() {
     }
 }
 </script>
+
+<style scoped>
+.patchName {
+    width: 70%;
+    margin: auto;
+    min-width: 400px;
+}
+
+.headerThingy {
+    margin: auto 7px;
+}
+</style>

@@ -1,9 +1,19 @@
 <template>
-    <section class="patches">
-        <Patch v-for="(x,i) in modelValue" v-model="modelValue[i]" />
-    </section>
-    <button @click="add()">+</button> 
-    <button @click="remove()">-</button> 
+    <div class="card">
+        <div class="card-header">
+            <span>Theme Patches</span>
+            <button class="btn btn-outline-primary btn-sm" @click="add()">Add Patch</button> 
+            <button class="btn btn-outline-secondary ml-5 btn-sm" @click="remove()" :disabled="modelValue.length <= 0">Remove Last Patch</button> 
+        </div>
+        <div class="card-body">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col" v-for="(x,i) in modelValue">
+                    <Patch v-model="modelValue[i]" />
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 
 <script setup>
@@ -29,7 +39,12 @@ function remove(){
 </script>
 
 <style scoped>
-.patches {
-    margin-left: 20px;
+
+.card-header {
+    text-align: center;
+}
+
+.card-header > * {
+    margin-right: 7px;
 }
 </style>

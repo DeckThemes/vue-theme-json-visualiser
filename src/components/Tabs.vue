@@ -46,7 +46,7 @@ function check(e, tab) {
 }
 
 .tab {
-    margin-left: 5px;
+    margin-left: 2px;
     display: flex;
 }
 
