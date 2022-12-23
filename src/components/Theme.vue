@@ -1,7 +1,7 @@
 <template>
     <section class="theme">
-        <div class="row">
-            <div class="col-sm-6">
+        <div class="row row-cols-1 row-cols-md-2 g-0">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">Theme Metadata</div>
                     <div class="card-body">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">Always injected</div>
                     <div class="card-body">
