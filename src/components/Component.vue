@@ -11,11 +11,11 @@
             </select>
         </div>
         <div class="input-group input-group-sm mb-1">
-            <label class="input-group-text" :for="id+3">Component Default Value</label>
+            <label class="input-group-text" :for="id+3">Component Default</label>
             <input class="form-control" type="text" :id="id+3" v-model="modelValue.default" />
         </div>
         <div class="input-group input-group-sm mb-1">
-            <label class="input-group-text" :for="id+4">Component Css Variable Name</label>
+            <label class="input-group-text" :for="id+4">Component Css Var</label>
             <input class="form-control" type="text" :id="id+4" v-model="modelValue.cssVariable" />
         </div>
         <div class="input-group input-group-sm">

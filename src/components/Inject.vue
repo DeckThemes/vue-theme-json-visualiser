@@ -1,7 +1,7 @@
 <template>
     <section class="inject">
         <div class="input-group input-group-sm mb-1">
-            <label class="input-group-text" :for="id">File Name</label>
+            <label class="input-group-text" :for="id">Filename</label>
             <input class="form-control" type="text" :id="id" v-model="modelValue.filename" />
             <label class="input-group-text">Tabs</label>
             <Tabs v-model="modelValue.tabs" class="form-control" />
