@@ -31,12 +31,12 @@ const props = defineProps({
 })
 
 function add(){
-    this.props.modelValue.push(reactive({patchOptionName: "New Patch Option", injects: reactive([]), components: reactive([])}))
-    console.log(this.props.modelValue)
+    props.modelValue.push(reactive({patchOptionName: "New Patch Option", injects: reactive([]), components: reactive([])}))
+    console.log(props.modelValue)
 }
 
 function remove(){
-    this.props.modelValue.pop()
+    props.modelValue.pop()
 }
 
 </script>

@@ -22,18 +22,18 @@ const props = defineProps({
 })
 
 function add(){
-    this.props.modelValue.push(reactive({
+    props.modelValue.push(reactive({
         componentName: "New Component",
         type: "image-picker",
         default: "",
         cssVariable: "my-cool-component-css-variable",
         tabs: []
     }))
-    console.log(this.props.modelValue)
+    console.log(props.modelValue)
 }
 
 function remove(){
-    this.props.modelValue.pop()
+    props.modelValue.pop()
 }
 
 </script>

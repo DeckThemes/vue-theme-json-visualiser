@@ -29,12 +29,12 @@ const props = defineProps({
 })
 
 function add(){
-    this.props.modelValue.push(reactive({filename: "Shared.css", tabs: ["SP"]}))
-    console.log(this.props.modelValue)
+    props.modelValue.push(reactive({filename: "Shared.css", tabs: ["SP"]}))
+    console.log(props.modelValue)
 }
 
 function remove(){
-    this.props.modelValue.pop()
+    props.modelValue.pop()
 }
 </script>
 

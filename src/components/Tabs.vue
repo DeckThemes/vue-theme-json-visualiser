@@ -17,15 +17,15 @@ const props = defineProps({
 
 function check(e, tab) {
     if (e.target.checked){
-        this.props.modelValue.push(tab)
+        props.modelValue.push(tab)
     }
     else {
-        var index = this.props.modelValue.indexOf(tab);
+        var index = props.modelValue.indexOf(tab);
         if (index !== -1) {
-            this.props.modelValue.splice(index, 1);
+            props.modelValue.splice(index, 1);
         }
     }
-    console.log(this.props.modelValue)
+    console.log(props.modelValue)
 }
 </script>
 

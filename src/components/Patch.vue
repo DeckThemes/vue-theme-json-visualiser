@@ -52,20 +52,20 @@ function setDisabledState(type){
 }
 
 function onTypeChange() {
-    let type = this.props.modelValue.type
+    let type = props.modelValue.type
     console.log(type)
 
     disabled.value = false
 
     if (type === "checkbox") {
-        this.props.modelValue.values.length = 0;
-        this.props.modelValue.values.push(reactive({
+        props.modelValue.values.length = 0;
+        props.modelValue.values.push(reactive({
             patchOptionName: "Yes",
             default: ref(false),
             injects: reactive([]),
             components: reactive([])
         }))
-        this.props.modelValue.values.push(reactive({
+        props.modelValue.values.push(reactive({
             patchOptionName: "No",
             default: ref(true),
             injects: reactive([]),
@@ -74,8 +74,8 @@ function onTypeChange() {
     }
 
     if (type === "none") {
-        this.props.modelValue.values.length = 0;
-        this.props.modelValue.values.push(reactive(
+        props.modelValue.values.length = 0;
+        props.modelValue.values.push(reactive(
             {
                 patchOptionName: "Inject",
                 default: ref(true),
@@ -85,7 +85,7 @@ function onTypeChange() {
         ))
     }
 
-    setDisabledState(this.props.modelValue.type)
+    setDisabledState(props.modelValue.type)
 }
 
 setDisabledState(props.modelValue.type)

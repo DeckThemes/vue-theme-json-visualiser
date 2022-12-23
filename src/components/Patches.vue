@@ -28,12 +28,12 @@ const props = defineProps({
 })
 
 function add(){
-    this.props.modelValue.push(reactive({patchName: "New Patch", type: "dropdown",  values: reactive([])}))
-    console.log(this.props.modelValue)
+    props.modelValue.push(reactive({patchName: "New Patch", type: "dropdown",  values: reactive([])}))
+    console.log(props.modelValue)
 }
 
 function remove(){
-    this.props.modelValue.pop()
+    props.modelValue.pop()
 }
 
 </script>
