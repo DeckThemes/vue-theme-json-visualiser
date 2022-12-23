@@ -67,7 +67,7 @@ function parsePatch(key, value){
                     componentName: i.name,
                     type: i.type,
                     default: i.default,
-                    css_variable: i.css_variable,
+                    cssVariable: i.css_variable,
                     tabs: i.tabs
                 })
         }
@@ -128,7 +128,7 @@ function retrieveJson(model){
         description: model.description,
         manifest_version: 4,
         inject: {},
-        dependencies: {},
+        dependencies: model.dependencies,
         patches: {}
     }
 
@@ -163,6 +163,7 @@ function retrieveJson(model){
                     css_variable: z.cssVariable,
                     tabs: z.tabs
                 })
+                console.log(z)
             })
         })
 
