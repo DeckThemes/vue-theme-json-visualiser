@@ -126,7 +126,7 @@ function retrieveJson(model){
         target: model.target,
         version: model.version,
         description: model.description,
-        manifest_version: 4,
+        manifest_version: 5,
         inject: {},
         dependencies: model.dependencies,
         patches: {}

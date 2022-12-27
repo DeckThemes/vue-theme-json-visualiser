@@ -1,7 +1,7 @@
 <template>
     <section>
         <div v-for="x in tabs" class="tab">
-            <input class="checkbox" type="checkbox" :id="x+id" :checked="modelValue.indexOf(x) >= 0" @change="check($event, x)" />
+            <input class="checkbox" type="checkbox" :id="x+id" :checked="modelValue.indexOf(x) >= 0" @change="check($event, x); $emit(`compute`)" />
             <label :for="x+id">{{x}}</label>
         </div>
     </section>
