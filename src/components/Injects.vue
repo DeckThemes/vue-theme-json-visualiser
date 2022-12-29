@@ -29,7 +29,7 @@ const props = defineProps({
 })
 
 function add(){
-    props.modelValue.push(reactive({filename: "Shared.css", tabs: ["SP"]}))
+    props.modelValue.push(reactive({filename: "shared.css", tabs: ["SP", "MainMenu", "QuickAccess"]}))
     console.log(props.modelValue)
 }
 

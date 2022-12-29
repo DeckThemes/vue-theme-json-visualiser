@@ -42,11 +42,13 @@ function construct(){
 
 function toCssInject(){
     isCssInject.value = true
+    props.modelValue.filename = "--my-css-var"
     construct()
 }
 
 function toFileInject(){
     isCssInject.value = false
+    props.modelValue.filename = "shared.css"
     construct()
 }
 </script>
