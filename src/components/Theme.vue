@@ -68,6 +68,7 @@ const targets = [
     "Lock Screen",
     "Tweak",
     "Other",
+    "Desktop",
 ]
 const props = defineProps({
     modelValue: Object

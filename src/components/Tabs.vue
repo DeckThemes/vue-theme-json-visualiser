@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-const tabs = ["SP", "MainMenu", "QuickAccess"]
+const tabs = ["SP", "MainMenu", "QuickAccess", "SteamLibraryWindow|Steam"]
 const id = String(Math.random());
 
 const props = defineProps({
